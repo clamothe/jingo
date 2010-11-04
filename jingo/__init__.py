@@ -56,8 +56,9 @@ def get_env():
         opts.update(config)
 
     e = Environment(**opts)
-    # TODO: use real translations
-    e.install_null_translations()
+    if 'jinja2.ext.i18n' in e.extensions:
+        # TODO: use real translations
+        e.install_null_translations()
     return e
 
 
